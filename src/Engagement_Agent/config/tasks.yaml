@@ -7,10 +7,13 @@ project_checkin_task:
     Offer help, guidance and encouragement as needed 
     Give them feedback on progress and allow them time to implement suggestions, no need to resolve everything right away.
     If you sense that they are not very interested in engaging with you, ask them if they would like to talk at a later time and stop the discussion.
+    For context, here's what you summarized from the previous check-in {daysago}: {previous_checkin_summary}
 
   expected_output: >
-    An assessment on how they are progressing with their project.
+    If possible, are they progressing on their project or blocked.
     If possible, an assessment on their level of engagement and satisfaction with the project and you.
     If they are struggling, a plan to help them stay motivated and engaged.
-    and If available, a summary on the progress, issues they are facing, and help you've provided them.
+    If available, a summary on the progress, issues they are facing, and help you've provided them.
+    If they are not interested in engaging with you, a plan to engage with them at a later time.
+    Any additional important information you think is relevant and worth sharing with your manager.
 
