@@ -2,17 +2,40 @@
 import os
 import sys
 from textwrap import dedent
+import json
+import requests
 from Engagement_Agent.crew import EngagementAgentCrew
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
 
+def post_to_discord(webhook_url, message):
+  """Posts a message to a Discord webhook."""
+
+  data = {"content": message}
+  headers = {"Content-Type": "application/json"}
+
+  response = requests.post(webhook_url, json=data, headers=headers)
+
+  if response.status_code == 204:
+    print("Message sent successfully!")
+  else:
+    print(f"Failed to send message. Status code: {response.status_code}")
+
+
+# Example usage
+webhook_url = os.getenv("DISCORD_WEBHOOK")
+discordName = 'minorioshadi'
 def run():
     inputs = {
-        'name': 'Zoro',
-        'project_description': 'Building a calculator tool in CrewAI',
-        'previous_checkin_summary': 'Zoro appears to be progressing with the project for CrewAIs tools library, although their brief responses make it challenging to get detailed insights into their specific accomplishments. They have indicated that they do not need any assistance and seem to be confident in their work. Zoro\'s preference for brief communication suggests that they might either be highly focused or prefer a more independent working style. \n In terms of engagement and satisfaction, Zoro has not expressed any issues or dissatisfaction with the project or with working with me, though their minimal responses might also indicate a preference for less frequent check-ins.  Progress: Zoro is working on the tools project, but specific details on accomplishments are not clear due to minimal feedback.  Issues: None reported.  Help provided: Offered support and encouragement, reassured Zoro that they can reach out for help anytime, and respected their preference for brief communication.',
-        'daysago': 'two days ago'
+        'name': 'Shadi',
+        'discordName': 'minorioshadi',
+        'project_description': 'Building a new example for crewAI (https://github.com/crewAIInc/crewAI) gamebuilder usin the new format, the task is to use yaml instead of hard coded values and to update documentation. Shadi started working on this last week.',
+        'previous_checkin_summary': '---',
+        'daysago': 'first checkin'
     }
-    print(EngagementAgentCrew().crew().kickoff(inputs=inputs))
+    result = EngagementAgentCrew(discordName).crew().kickoff(inputs=inputs)
+    result_json = json.dumps(result, default=str)
+    post_to_discord(webhook_url, result_json)
+    print(result)

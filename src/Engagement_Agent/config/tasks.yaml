@@ -2,18 +2,11 @@ project_checkin_task:
   description: >
     Your team member {name} is working on a project {project_description}.
     Reach out to a team member to check on their progress with the project.
-    You will have the ability to have multiple messages, don't try to cram everything into one message.
-    If you ask a questtion only ask one at a time, don't ask multiple questions in the same message.
-    Offer help, guidance and encouragement as needed 
-    Give them feedback on progress and allow them time to implement suggestions, no need to resolve everything right away.
-    If you sense that they are not very interested in engaging with you, ask them if they would like to talk at a later time and stop the discussion.
-    For context, here's what you summarized from the previous check-in {daysago}: {previous_checkin_summary}
+    Ask only one question per message, try to keep your messages and interactions short.
+    If they are blocked, offer to help them.
+    either way encourage their heart as much as you can.
 
   expected_output: >
-    If possible, are they progressing on their project or blocked.
-    If possible, an assessment on their level of engagement and satisfaction with the project and you.
-    If they are struggling, a plan to help them stay motivated and engaged.
-    If available, a summary on the progress, issues they are facing, and help you've provided them.
-    If they are not interested in engaging with you, a plan to engage with them at a later time.
-    Any additional important information you think is relevant and worth sharing with your manager.
+    summary of project status update, and summary of {name}'s emotional state.
 
+    
